@@ -127,11 +127,11 @@ namespace :documentation do
     unless File.directory?('.tmp')
       sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
     end
-    sh 'cd ".tmp"'
-    sh 'github_changelog_generator'
-    sh 'git status'
-    sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
-    sh 'cd ".."'
+    Dir.chdir('.tmp') do
+      sh 'github_changelog_generator'
+      sh 'git status'
+      sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
+    end
   end
 
   desc 'Generate changelog from current commit message for release'
