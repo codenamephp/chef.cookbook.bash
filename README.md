@@ -15,7 +15,6 @@ Makes sure bash is installed and handles bash configurations
 
 ### Cookbook Depdendencies
 
-
 ## Usage
 
 Add the cookbook to your Berksfile:
