@@ -123,7 +123,7 @@ namespace :documentation do
   task changelog: ['git:setup'] do
     unless File.directory?('.tmp')
       sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
-      end
+    end
     sh 'cd ".tmp"'
     sh 'github_changelog_generator'
     sh 'git status'
