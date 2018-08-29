@@ -16,7 +16,7 @@ def concurrency
 end
 
 def origin_branch
-  ENV['TRAVIS_PULL_REQUEST_BRANCH'] || ENV['TRAVIS_BRANCH'] || 'dev'
+  ENV['TRAVIS_PULL_REQUEST_BRANCH'].presence || ENV['TRAVIS_BRANCH'].presence || 'dev'
 end
 
 task default: %w[style unit integration]
@@ -26,12 +26,7 @@ namespace :git do
   task :setup do
     sh 'git config --local user.name "Travis CI"'
     sh 'git config --local user.email "travis@codename-php.de"'
-    sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false do |ok, status|
-      unless ok
-        raise "Command failed with status (#{status.exitstatus}): " \
-              'git remote set-url --push origin "https://[GITHUB_TOKEN_HIDDEN]@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"'
-      end
-    end
+    sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false
   end
 end
 
@@ -126,8 +121,10 @@ task :integration, %i[regexp action concurrency] => ci? || use_dokken? ? %w[inte
 namespace :documentation do
   desc 'Generate changelog'
   task changelog: ['git:setup'] do
-    sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
-    sh 'cd .tmp'
+    unless File.directory?('.tmp')
+      sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
+      end
+    sh 'cd ".tmp"'
     sh 'github_changelog_generator'
     sh 'git status'
     sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
