@@ -126,7 +126,7 @@ task :integration, %i[regexp action concurrency] => ci? || use_dokken? ? %w[inte
 namespace :documentation do
   desc 'Generate changelog'
   task changelog: ['git:setup'] do
-    sh 'git clone git@github.com:' + ENV['TRAVIS_REPO_SLUG'] + '.git --branch ' + origin_branch + ' --single-branch .tmp'
+    sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
     sh 'cd .tmp'
     sh 'github_changelog_generator'
     sh 'git status'
