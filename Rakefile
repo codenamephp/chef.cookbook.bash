@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 # Checks if we are inside a Continuous Integration machine.
 #
 # @return [Boolean] whether we are inside a CI.
