@@ -128,6 +128,7 @@ namespace :documentation do
     sh 'github_changelog_generator'
     sh 'git status'
     sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
+    sh 'cd ".."'
   end
 
   desc 'Generate changelog from current commit message for release'
