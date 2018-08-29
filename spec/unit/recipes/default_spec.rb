@@ -1,12 +1,12 @@
 #
-# Cookbook:: codenamephp_dev
+# Cookbook:: codenamephp_bash
 # Spec:: default
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'codenamephp_dev::default' do
+describe 'codenamephp_bash::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::SoloRunner.new

@@ -4,7 +4,7 @@
 # @example
 #   ci? #=> false
 def ci?
-  ENV['CI'] == true
+  ENV['CI'] == 'true'
 end
 
 def use_dokken?
@@ -16,10 +16,10 @@ def concurrency
 end
 
 def origin_branch
-  branch = ENV['TRAVIS_PULL_REQUEST_BRANCH'] || ENV['TRAVIS_BRANCH'] || 'dev'
+  ENV['TRAVIS_PULL_REQUEST_BRANCH'] || ENV['TRAVIS_BRANCH'] || 'dev'
 end
 
-task default: %w[style unit integration documentation]
+task default: %w[style unit integration]
 
 namespace :git do
   desc 'Setting up git for pushing'
