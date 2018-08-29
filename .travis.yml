@@ -27,7 +27,7 @@ install:
   - gem install github_changelog_generator
   
 script:
-  - chef exec rake default documentation
+  - chef exec rake default
   
 deploy:
   - provider: script
@@ -35,3 +35,6 @@ deploy:
       branch: master
     skip_cleanup: true
     script: chef exec rake release
+
+after_script:
+  - chef exec rake documentation
