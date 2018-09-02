@@ -2,6 +2,11 @@
 
 ## [Unreleased](https://github.com/codenamephp/chef.cookbook.bash/tree/HEAD)
 
+**Implemented enhancements:**
+
+- Init for all users with data dir [\#4](https://github.com/codenamephp/chef.cookbook.bash/issues/4)
+- Add github token to changelog generator [\#2](https://github.com/codenamephp/chef.cookbook.bash/issues/2)
+
 **Closed issues:**
 
 - Lets see if auto changelog works [\#1](https://github.com/codenamephp/chef.cookbook.bash/issues/1)
