@@ -19,7 +19,7 @@ def concurrency
 end
 
 def origin_branch
-  ENV['TRAVIS_PULL_REQUEST_BRANCH'].presence || ENV['TRAVIS_BRANCH'].presence || 'dev'
+  ENV['TRAVIS_PULL_REQUEST_BRANCH'].presence || ENV['TRAVIS_BRANCH'].presence || 'master'
 end
 
 task default: %w[style unit integration]
@@ -27,9 +27,11 @@ task default: %w[style unit integration]
 namespace :git do
   desc 'Setting up git for pushing'
   task :setup do
-    sh 'git config --local user.name "Travis CI"'
-    sh 'git config --local user.email "travis@codename-php.de"'
-    sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false
+    if ENV['TRAVIS']
+      sh 'git config --local user.name "Travis CI"'
+      sh 'git config --local user.email "travis@codename-php.de"'
+      sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false
+    end
   end
 end
 
@@ -124,10 +126,11 @@ task :integration, %i[regexp action concurrency] => ci? || use_dokken? ? %w[inte
 namespace :documentation do
   desc 'Generate changelog'
   task changelog: ['git:setup'] do
-    unless File.directory?('.tmp')
-      sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
+    branch_repo = "/#{Dir.home}/#{ENV['TRAVIS_REPO_SLUG']}"
+    unless File.directory?(branch_repo)
+      sh "git clone 'https://#{ENV['GH_TOKEN']}@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git' --branch #{origin_branch} --single-branch #{branch_repo}"
     end
-    Dir.chdir('.tmp') do
+    Dir.chdir(branch_repo) do
       sh "github_changelog_generator -t #{ENV['GH_TOKEN']}"
       sh 'git status'
       sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
