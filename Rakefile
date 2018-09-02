@@ -124,14 +124,17 @@ desc 'Run Test Kitchen integration tests'
 task :integration, %i[regexp action concurrency] => ci? || use_dokken? ? %w[integration:dokken] : %w[integration:vagrant]
 
 namespace :documentation do
+  version_match = Regexp.new('\[RELEASE\s([\d\.]+)\]').match(ENV['TRAVIS_COMMIT_MESSAGE'])
+
   desc 'Generate changelog'
   task changelog: ['git:setup'] do
     branch_repo = "/#{Dir.home}/#{ENV['TRAVIS_REPO_SLUG']}"
+
     unless File.directory?(branch_repo)
       sh "git clone 'https://#{ENV['GH_TOKEN']}@github.com/#{ENV['TRAVIS_REPO_SLUG']}.git' --branch #{origin_branch} --single-branch #{branch_repo}"
     end
     Dir.chdir(branch_repo) do
-      sh "github_changelog_generator -t #{ENV['GH_TOKEN']}"
+      sh format("github_changelog_generator -t #{ENV['GH_TOKEN']} %<version>s", version: ("--future-release #{version_match[1]}" unless version_match.nil?))
       sh 'git status'
       sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
     end
@@ -139,9 +142,8 @@ namespace :documentation do
 
   desc 'Generate changelog from current commit message for release'
   task changelog_release: ['git:setup'] do
-    match = Regexp.new('\[RELEASE\s([\d\.]+)\]').match(ENV['TRAVIS_COMMIT_MESSAGE'])
-    unless match.nil?
-      sh "github_changelog_generator -t #{ENV['GH_TOKEN']} --future-release #{match[1]}"
+    unless version_match.nil?
+      sh "github_changelog_generator -t #{ENV['GH_TOKEN']} %s--future-release #{version_match[1]}"
       sh 'git status'
       sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + ENV['TRAVIS_BRANCH']
     end
