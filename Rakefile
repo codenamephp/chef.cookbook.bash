@@ -124,7 +124,7 @@ desc 'Run Test Kitchen integration tests'
 task :integration, %i[regexp action concurrency] => ci? || use_dokken? ? %w[integration:dokken] : %w[integration:vagrant]
 
 namespace :documentation do
-  version_match = Regexp.new('\[RELEASE\s([\d\.]+)\]').version_match(ENV['TRAVIS_COMMIT_MESSAGE'])
+  version_match = Regexp.new('\[RELEASE\s([\d\.]+)\]').match(ENV['TRAVIS_COMMIT_MESSAGE'])
 
   desc 'Generate changelog'
   task changelog: ['git:setup'] do
