@@ -1,7 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/codenamephp/chef.cookbook.bash/tree/HEAD)
-
+## [v1.0.0](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.0) (2018-09-02)
 **Implemented enhancements:**
 
 - Init for all users with data dir [\#4](https://github.com/codenamephp/chef.cookbook.bash/issues/4)
