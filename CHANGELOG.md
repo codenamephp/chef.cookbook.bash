@@ -8,6 +8,10 @@
 
 - Changelog: Version not respected after release [\#6](https://github.com/codenamephp/chef.cookbook.bash/issues/6)
 
+**Merged pull requests:**
+
+- \[RELEASE 1.0.1\] [\#7](https://github.com/codenamephp/chef.cookbook.bash/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [v1.0.0](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.0) (2018-09-02)
 **Implemented enhancements:**
 
