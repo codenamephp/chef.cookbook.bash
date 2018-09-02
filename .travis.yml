@@ -38,4 +38,4 @@ deploy:
     script: chef exec rake release
 
 after_script:
-  - chef exec rake documentation
+  - test $TRAVIS_PULL_REQUEST = false && chef exec rake documentation
