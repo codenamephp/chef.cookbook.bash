@@ -128,7 +128,7 @@ namespace :documentation do
       sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
     end
     Dir.chdir('.tmp') do
-      sh 'github_changelog_generator'
+      sh "github_changelog_generator -t #{ENV['GH_TOKEN']}"
       sh 'git status'
       sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
     end
@@ -138,7 +138,7 @@ namespace :documentation do
   task changelog_release: ['git:setup'] do
     match = Regexp.new('\[RELEASE\s([\d\.]+)\]').match(ENV['TRAVIS_COMMIT_MESSAGE'])
     unless match.nil?
-      sh 'github_changelog_generator --future-release ' + match[1].to_s
+      sh "github_changelog_generator -t #{ENV['GH_TOKEN']} --future-release #{match[1]}"
       sh 'git status'
       sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + ENV['TRAVIS_BRANCH']
     end
