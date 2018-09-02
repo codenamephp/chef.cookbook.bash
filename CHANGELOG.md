@@ -1,12 +1,15 @@
 # Change Log
 
-## [Unreleased](https://github.com/codenamephp/chef.cookbook.bash/tree/HEAD)
-
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/v1.0.0...HEAD)
+## [1.0.1](https://github.com/codenamephp/chef.cookbook.bash/tree/1.0.1) (2018-09-02)
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/v1.0.0...1.0.1)
 
 **Fixed bugs:**
 
 - Changelog: Version not respected after release [\#6](https://github.com/codenamephp/chef.cookbook.bash/issues/6)
+
+**Merged pull requests:**
+
+- \[RELEASE 1.0.1\] [\#7](https://github.com/codenamephp/chef.cookbook.bash/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v1.0.0](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.0) (2018-09-02)
 **Implemented enhancements:**
