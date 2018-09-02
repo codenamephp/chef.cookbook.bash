@@ -1,32 +1,15 @@
 # Change Log
 
-## [v2.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v2.0.0) (2018-08-17)
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v1.0.0...v2.0.0)
+## [Unreleased](https://github.com/codenamephp/chef.cookbook.bash/tree/HEAD)
 
 **Implemented enhancements:**
 
-- DNSMasq: Use drop folder \(/etc/dnsmasq.d\) for config [\#12](https://github.com/codenamephp/chef.cookbook.dev/issues/12)
-- Remove jdk recipe [\#9](https://github.com/codenamephp/chef.cookbook.dev/issues/9)
-- Add gnome-terminal [\#7](https://github.com/codenamephp/chef.cookbook.dev/issues/7)
+- Init for all users with data dir [\#4](https://github.com/codenamephp/chef.cookbook.bash/issues/4)
+- Add github token to changelog generator [\#2](https://github.com/codenamephp/chef.cookbook.bash/issues/2)
 
-## [v1.0.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v1.0.0) (2018-06-06)
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.dev/compare/v0.2.0...v1.0.0)
+**Closed issues:**
 
-**Merged pull requests:**
-
-- Update metadata.rb [\#6](https://github.com/codenamephp/chef.cookbook.dev/pull/6) ([bastianschwarz](https://github.com/bastianschwarz))
-
-## [v0.2.0](https://github.com/codenamephp/chef.cookbook.dev/tree/v0.2.0) (2018-06-05)
-**Implemented enhancements:**
-
-- Add Visual Studio Code [\#2](https://github.com/codenamephp/chef.cookbook.dev/issues/2)
-- Move to new structure and travis [\#1](https://github.com/codenamephp/chef.cookbook.dev/issues/1)
-
-**Merged pull requests:**
-
-- Deleting Berksfile.lock since it will cause the relase to fail \(stove… [\#5](https://github.com/codenamephp/chef.cookbook.dev/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
-- Release 1.0.0 [\#4](https://github.com/codenamephp/chef.cookbook.dev/pull/4) ([bastianschwarz](https://github.com/bastianschwarz))
-- Merge master [\#3](https://github.com/codenamephp/chef.cookbook.dev/pull/3) ([bastianschwarz](https://github.com/bastianschwarz))
+- Lets see if auto changelog works [\#1](https://github.com/codenamephp/chef.cookbook.bash/issues/1)
 
 
 

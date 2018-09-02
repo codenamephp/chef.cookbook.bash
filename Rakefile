@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 # Checks if we are inside a Continuous Integration machine.
 #
 # @return [Boolean] whether we are inside a CI.
@@ -16,7 +19,7 @@ def concurrency
 end
 
 def origin_branch
-  ENV['TRAVIS_PULL_REQUEST_BRANCH'] || ENV['TRAVIS_BRANCH'] || 'dev'
+  ENV['TRAVIS_PULL_REQUEST_BRANCH'].presence || ENV['TRAVIS_BRANCH'].presence || 'dev'
 end
 
 task default: %w[style unit integration]
@@ -26,12 +29,7 @@ namespace :git do
   task :setup do
     sh 'git config --local user.name "Travis CI"'
     sh 'git config --local user.email "travis@codename-php.de"'
-    sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false do |ok, status|
-      unless ok
-        raise "Command failed with status (#{status.exitstatus}): " \
-              'git remote set-url --push origin "https://[GITHUB_TOKEN_HIDDEN]@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"'
-      end
-    end
+    sh 'git remote set-url --push origin "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git"', verbose: false
   end
 end
 
@@ -126,18 +124,21 @@ task :integration, %i[regexp action concurrency] => ci? || use_dokken? ? %w[inte
 namespace :documentation do
   desc 'Generate changelog'
   task changelog: ['git:setup'] do
-    sh 'git clone git@github.com:' + ENV['TRAVIS_REPO_SLUG'] + '.git --branch ' + origin_branch + ' --single-branch .tmp'
-    sh 'cd .tmp'
-    sh 'github_changelog_generator'
-    sh 'git status'
-    sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
+    unless File.directory?('.tmp')
+      sh 'git clone "https://' + ENV['GH_TOKEN'].to_s + '@github.com/' + ENV['TRAVIS_REPO_SLUG'] + '.git" --branch ' + origin_branch + ' --single-branch .tmp'
+    end
+    Dir.chdir('.tmp') do
+      sh "github_changelog_generator -t #{ENV['GH_TOKEN']}"
+      sh 'git status'
+      sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + origin_branch
+    end
   end
 
   desc 'Generate changelog from current commit message for release'
   task changelog_release: ['git:setup'] do
     match = Regexp.new('\[RELEASE\s([\d\.]+)\]').match(ENV['TRAVIS_COMMIT_MESSAGE'])
     unless match.nil?
-      sh 'github_changelog_generator --future-release ' + match[1].to_s
+      sh "github_changelog_generator -t #{ENV['GH_TOKEN']} --future-release #{match[1]}"
       sh 'git status'
       sh 'git add CHANGELOG.md && git commit --allow-empty -m"[skip ci] Updated changelog" && git push origin ' + ENV['TRAVIS_BRANCH']
     end

@@ -11,4 +11,5 @@ source_url 'https://github.com/codenamephp/chef.cookbook.bash' if respond_to?(:s
 
 supports 'debian', '~>9.1'
 
+depends 'apt', '~> 7.0'
 depends 'bashrc_manager', '~> 1.0'
