@@ -1,41 +1,30 @@
-language: ruby
-sudo: required
-dist: trusty
+
+addons:
+  apt:
+    sources:
+      - chef-current-xenial
+    packages:
+      - chef-workstation
+
+env:
+  global:
+    - CHEF_LICENSE=accept
+    - KITCHEN_LOCAL_YAML=kitchen.dokken.yml
+    - secure: "sXKZDMGoJsYZe1zgmD6IO569Q4OlSzU4icDI5it106JYfWJwghc0COXU3xKNUrOCWMHG2v8jRGjjF/45gMLJ0Op8ouZMFPo3r+q2LzNF/Y0n1bZtRuIoGaTSzZCIOYFmilJE/35a48rO1Bhz1oldYHPbn/5G/8j4XZT1awR4OT8qx0Rx9+eRPeHF/ftauJ25+zwjej24eyW2HBJeO3z7hG4c8vgu3DPo9FbN6+8gjvpWXsybrqV5Dvx1cRbKd/LqjM1wAlS8OJI9GTuUoUCt2hYGWPX0EIAwfswBX72ySmNiHSF7Bt6FIYbqyDbZpuyIxyTue9DBszlTNGi8RcHA3J0vZXxCXgUYOuh6i41+MhJ6m5w04iW9w05q6aX0vSQ/0/qQhemwJ+qBydZTt6pOv8sIGMx96wZI9oGGgKBluXxqicTvB8dOSHOxfx0KVWi8aKSnuoA0A/ejvI7k87LA4O4NT+OTvm+UIXD0hb77pOsNB9g2GLpDbuQe64Zk3Rxx/4jf4kaGKZebj430md7SggrVPMJCOq4wqdqM1HqCkADHzNavdOcToZajV4KmOXwu8bF/5pwJ66Yf3Ibs9dLFFnI8USTNlPau0aEsq+jgTSij+SB7XH8d964I8Rt9sNUQpT7mVI7dKmQI697sj1gtl5v/h7Mer+QXXv2tWo87gGg="
 
 branches:
   only:
   - master
-  - dev
   - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
   
 services: docker
-
-env:
-  global:
-    - secure: "sXKZDMGoJsYZe1zgmD6IO569Q4OlSzU4icDI5it106JYfWJwghc0COXU3xKNUrOCWMHG2v8jRGjjF/45gMLJ0Op8ouZMFPo3r+q2LzNF/Y0n1bZtRuIoGaTSzZCIOYFmilJE/35a48rO1Bhz1oldYHPbn/5G/8j4XZT1awR4OT8qx0Rx9+eRPeHF/ftauJ25+zwjej24eyW2HBJeO3z7hG4c8vgu3DPo9FbN6+8gjvpWXsybrqV5Dvx1cRbKd/LqjM1wAlS8OJI9GTuUoUCt2hYGWPX0EIAwfswBX72ySmNiHSF7Bt6FIYbqyDbZpuyIxyTue9DBszlTNGi8RcHA3J0vZXxCXgUYOuh6i41+MhJ6m5w04iW9w05q6aX0vSQ/0/qQhemwJ+qBydZTt6pOv8sIGMx96wZI9oGGgKBluXxqicTvB8dOSHOxfx0KVWi8aKSnuoA0A/ejvI7k87LA4O4NT+OTvm+UIXD0hb77pOsNB9g2GLpDbuQe64Zk3Rxx/4jf4kaGKZebj430md7SggrVPMJCOq4wqdqM1HqCkADHzNavdOcToZajV4KmOXwu8bF/5pwJ66Yf3Ibs9dLFFnI8USTNlPau0aEsq+jgTSij+SB7XH8d964I8Rt9sNUQpT7mVI7dKmQI697sj1gtl5v/h7Mer+QXXv2tWo87gGg="
-addons:
-  apt:
-    sources:
-    - chef-current-trusty
-    packages:
-    - chefdk
 
 install:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - openssl aes-256-cbc -K $encrypted_264707aa6565_key -iv $encrypted_264707aa6565_iv -in codenamephp.pem.enc -out codenamephp.pem -d
-  - gem install github_changelog_generator
-  - gem install activesupport
-  
-script:
-  - chef exec rake default
-  
-deploy:
-  - provider: script
-    on:
-      branch: master
-    skip_cleanup: true
-    script: chef exec rake release
 
-after_script:
-  - test $TRAVIS_PULL_REQUEST = false && chef exec rake documentation
+script: 
+  - chef exec foodcritic .
+  - chef exec rubocop
+  - chef exec kitchen test

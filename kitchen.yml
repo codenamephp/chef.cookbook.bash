@@ -9,12 +9,12 @@ verifier:
   name: inspec
 
 platforms:
-  - name: debian-9.3
+  - name: debian-10
 
 suites:
   - name: default
     run_list:
-      - recipe[codenamephp_bash]
+      - recipe[test::default]
     verifier:
       inspec_tests:
         - test/smoke/default
