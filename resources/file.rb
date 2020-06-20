@@ -10,6 +10,10 @@ action :add do
   user_loop(new_resource.users) { |home_folder, user| create_file(home_folder, user, new_resource.filename, new_resource.content) }
 end
 
+action :remove do
+  remove(new_resource.users, new_resource.skel, new_resource.filename)
+end
+
 action_class do
   def create_file(folder, user, filename, content)
     file 'create file with content' do

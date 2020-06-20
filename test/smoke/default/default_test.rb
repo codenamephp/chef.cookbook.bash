@@ -59,6 +59,12 @@ control 'bash-1.0' do
     its('mode') { should cmp '0640' }
     its('owner') { should eq 'root' }
   end
+  describe file('/etc/skel/.bashrc.d/400-content') do
+    it { should_not exist }
+  end
+  describe file('/etc/skel/.bashrc.d/500-content') do
+    it { should exist }
+  end
 
   describe file('/home/user1/.bashrc') do
     it { should exist }
@@ -106,15 +112,16 @@ control 'bash-1.0' do
     its('mode') { should cmp '0640' }
     its('owner') { should eq 'user1' }
   end
+  describe file('/home/user1/.bashrc.d/400-content') do
+    it { should_not exist }
+  end
 
   describe file('/home/user2/.bashrc') do
     it { should_not exist }
   end
-
   describe file('/home/user2/.bashrc.d') do
     it { should_not exist }
   end
-
   describe file('/home/user2/.bashrc.d/000-init') do
     it { should_not exist }
   end
@@ -125,6 +132,34 @@ control 'bash-1.0' do
     it { should_not exist }
   end
   describe file('/home/user2/.bashrc.d/300-template') do
+    it { should_not exist }
+  end
+  describe file('/home/user2/.bashrc.d/400-content') do
+    it { should_not exist }
+  end
+
+  describe file('/home/user3/.bashrc') do
+    it { should exist }
+  end
+  describe file('/home/user3/.bashrc.d') do
+    it { should exist }
+  end
+  describe file('/home/user3/.bashrc.d/000-init') do
+    it { should exist }
+  end
+  describe file('/home/user3/.bashrc.d/100-content') do
+    it { should exist }
+  end
+  describe file('/home/user3/.bashrc.d/200-file') do
+    it { should exist }
+  end
+  describe file('/home/user3/.bashrc.d/300-template') do
+    it { should exist }
+  end
+  describe file('/home/user3/.bashrc.d/400-content') do
+    it { should_not exist }
+  end
+  describe file('/home/user3/.bashrc.d/500-content') do
     it { should_not exist }
   end
 end
