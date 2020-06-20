@@ -38,6 +38,6 @@ deploy:
   edge: true
   cleanup: false
   run:
-    - chef exec berks upload
+    - chef exec berks upload -e test
   on:
     tags: true
