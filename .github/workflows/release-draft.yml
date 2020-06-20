@@ -1,24 +1,19 @@
-name: Update Changelog
-on: 
+name: Update Releaseinfo
+on:
   push:
-  pull_request:
+    branches:
+      - master
 
 jobs:
-  changelog:
+  update_version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
       - name: calculate next version
         id: version
-        uses: patrickjahns/version-drafter-action@master
+        uses: patrickjahns/version-drafter-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: update changelog
-        uses: patrickjahns/chlgr@v1
-        with:
-          release-version: ${{ steps.version.outputs.next-version }}
-      - name: draft release
-        uses: release-drafter/release-drafter@master
+      - uses: release-drafter/release-drafter@master
         with:
           version: ${{ format('{0}', steps.version.outputs.next-version) }}
           tag: ${{ format('{0}', steps.version.outputs.next-version) }}
