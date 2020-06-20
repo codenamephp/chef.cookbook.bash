@@ -9,3 +9,5 @@ version '2.0.3'
 chef_version '>= 13.0'
 issues_url 'https://github.com/codenamephp/chef.cookbook.bash/issues'
 source_url 'https://github.com/codenamephp/chef.cookbook.bash'
+
+supports 'debian'
