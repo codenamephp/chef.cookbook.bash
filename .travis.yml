@@ -15,7 +15,7 @@ env:
 branches:
   only:
   - master
-  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+  - /^\d+\.\d+(\.\d+)?(-\S*)?$/
   
 services: docker
 
@@ -28,3 +28,14 @@ script:
   - chef exec foodcritic .
   - chef exec rubocop
   - chef exec kitchen test
+
+deploy:
+  provider: chef-supermarket
+  user_id: "codenamephp"
+  client_key: "codenamephp.pem"
+  cookbook_category: "Utilities"
+  on:
+    tags: true
+
+after_deploy:
+  - chef exec berks upload

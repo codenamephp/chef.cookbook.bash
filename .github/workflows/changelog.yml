@@ -1,7 +1,8 @@
 name: Update Changelog
-on: 
+on:
   push:
-  pull_request:
+    branches:
+      - master
 
 jobs:
   changelog:
