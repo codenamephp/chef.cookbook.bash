@@ -38,7 +38,6 @@ deploy:
   name: "codenamephp_bash"
   category: "Utilities"
   edge: true
-  cleanup: false
   run:
     - chef exec berks upload -e test
   on:
