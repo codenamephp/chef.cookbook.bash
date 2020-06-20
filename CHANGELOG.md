@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.0.1](https://github.com/codenamephp/chef.cookbook.bash/tree/0.0.1) (2020-06-20)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/v1.0.2...0.0.1)
+
+**Implemented enhancements:**
+
+- Move to a resource [\#14](https://github.com/codenamephp/chef.cookbook.bash/issues/14)
+- Changelog: Only commit when changed [\#9](https://github.com/codenamephp/chef.cookbook.bash/issues/9)
+
 ## [1.0.2](https://github.com/codenamephp/chef.cookbook.bash/tree/1.0.2) (2018-09-02)
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/v1.0.1...1.0.2)
 
