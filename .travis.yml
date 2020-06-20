@@ -35,8 +35,8 @@ deploy:
   client_key: "codenamephp.pem"
   category: "Utilities"
   edge: true
+  cleanup: false
+  run:
+    - chef exec berks upload
   on:
     tags: true
-
-after_deploy:
-  - chef exec berks upload
