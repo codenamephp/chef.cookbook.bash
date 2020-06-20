@@ -21,7 +21,7 @@ Add the cookbook to your Berksfile or metadata.rb:
 cookbook 'codenamephp_bash'
 ```
 
-There are no recipies but several resources. A basic usage could look like:
+There are no recipes but several resources. A basic usage could look like:
 
 ```ruby
 codenamephp_bash_manage 'manage bash' do
@@ -47,11 +47,11 @@ codenamephp_bash_template 'add a template file' do
 end
 ```
 
-Use these resources in your recipies. The manage resource has to be called first so the dropfolders will be created. 
+Use these resources in your recipes. The manage resource has to be called first so the dropfolders will be created. 
 The other resources can be used to add files to the dropfolders. If a user
 does not exist it will just be skipped and no files and folders will be created.
 
-The file resources are primarily for convinience since the handle skel and users and do user and directory checks. If you have advanced requirements like template variables you can always just place your files yourself into the .bashrc.d folder using regular chef resources.
+The file resources are primarily for convenience since the handle skel and users and do user and directory checks. If you have advanced requirements like template variables you can always just place your files yourself into the .bashrc.d folder using regular chef resources.
 
 ## Resources
 
