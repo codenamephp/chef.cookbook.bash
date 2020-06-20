@@ -1,5 +1,5 @@
 # Chef Cookbook Bash
-[![Build Status](https://travis-ci.org/codenamephp/chef.cookbook.bash.svg?branch=dev)](https://travis-ci.org/codenamephp/chef.cookbook.bash)
+[![Build Status](https://travis-ci.com/codenamephp/chef.cookbook.bash.svg?branch=master)](https://travis-ci.com/codenamephp/chef.cookbook.bash)
 
 Makes sure bash is installed and handles bash configurations
 
