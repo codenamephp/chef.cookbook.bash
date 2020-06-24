@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.1.1](https://github.com/codenamephp/chef.cookbook.bash/tree/2.1.1) (2020-06-24)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.1.0...2.1.1)
+
+**Fixed bugs:**
+
+- The init could execute the file. [\#23](https://github.com/codenamephp/chef.cookbook.bash/pull/23) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [2.1.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.1.0) (2020-06-24)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.0.5...2.1.0)
