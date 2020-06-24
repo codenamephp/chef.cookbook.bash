@@ -15,9 +15,12 @@ action :remove do
 end
 
 action_class do
-  def create_file(folder, user, filename, content)
+  def create_file(folder, user, filename, file_content)
     file 'create file with content' do
-      content content
+      content <<~FILE
+        # Managed by Chef.  Local changes will be overwritten.
+        #{file_content}
+      FILE
       mode '0640'
       owner user
       path "#{folder}/.bashrc.d/#{filename}"
