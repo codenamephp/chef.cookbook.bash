@@ -16,14 +16,16 @@ action_class do
   def init(folder, user)
     directory 'create .bashrc.d folder' do
       path "#{folder}/.bashrc.d"
-      mode '0640'
+      mode '0770'
       owner user
+      group user
     end
 
     file 'copy default .bashrc to init in dropfolder' do
       path "#{folder}/.bashrc.d/000-init"
-      mode '0640'
+      mode '0770'
       owner user
+      group user
       content(lazy { ::File.read("#{folder}/.bashrc") })
       action :create_if_missing
     end
@@ -32,8 +34,9 @@ action_class do
       path "#{folder}/.bashrc"
       source '.bashrc.erb'
       cookbook 'codenamephp_bash'
-      mode '0640'
+      mode '0770'
       owner user
+      group user
     end
   end
 

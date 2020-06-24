@@ -21,8 +21,9 @@ action_class do
         # Managed by Chef.  Local changes will be overwritten.
         #{file_content}
       FILE
-      mode '0640'
+      mode '0770'
       owner user
+      group user
       path "#{folder}/.bashrc.d/#{filename}"
     end
   end

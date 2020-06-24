@@ -14,8 +14,9 @@ end
 action_class do
   def create_file(folder, user, filename, source)
     template 'create file from template' do
-      mode '0640'
+      mode '0770'
       owner user
+      group user
       path "#{folder}/.bashrc.d/#{filename}"
       source source
       cookbook new_resource.cookbook

@@ -14,8 +14,9 @@ end
 action_class do
   def create_file(folder, user, filename, cookbook_file)
     cookbook_file 'create file from cookbook_file' do
-      mode '0640'
+      mode '0770'
       owner user
+      group user
       path "#{folder}/.bashrc.d/#{filename}"
       source cookbook_file
       cookbook new_resource.cookbook
