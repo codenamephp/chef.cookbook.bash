@@ -1,5 +1,21 @@
 # Change Log
 
+## [2.1.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.1.0) (2020-06-24)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.0.5...2.1.0)
+
+**Implemented enhancements:**
+
+- Added possibility to pass the cookbook name the file is in [\#20](https://github.com/codenamephp/chef.cookbook.bash/pull/20) ([bastianschwarz](https://github.com/bastianschwarz))
+
+**Closed issues:**
+
+- Add header to file [\#19](https://github.com/codenamephp/chef.cookbook.bash/issues/19)
+
+**Merged pull requests:**
+
+- Resolves \#19 [\#21](https://github.com/codenamephp/chef.cookbook.bash/pull/21) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [2.0.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.0.0) (2020-06-20)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/v1.0.2...2.0.0)
