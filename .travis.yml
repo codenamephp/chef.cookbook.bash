@@ -14,8 +14,10 @@ env:
 
 branches:
   only:
-  - master
-  - /^\d+\.\d+(\.\d+)?(-\S*)?$/
+    - master
+    - /^\d+\.\d+(\.\d+)?(-\S*)?$/
+  except:
+    - release/next
   
 services: docker
 
