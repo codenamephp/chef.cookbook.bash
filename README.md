@@ -119,6 +119,7 @@ This resource adds a cookbook file for all given users and skel.
 - `users`: Array of usernames that will be managed, defaults to an empty array
 - `filename`: The filename inside the .bashrc.d folder as string, should begin with a number xxx- for sorting
 - `cookbook_file`: The name of the cookbook file to add, this file must be present in your cookbook
+- `cookbook`: The name of the cookbook the file is in, defaults to the calling cookbook
 
 #### Examples
 
@@ -147,6 +148,7 @@ This resource adds a new file using chef templates for all given users and skel.
 - `users`: Array of usernames that will be managed, defaults to an empty array
 - `filename`: The filename inside the .bashrc.d folder as string, should begin with a number xxx- for sorting
 - `source`: The source template to use. The template must be present in your cookbook
+- `cookbook`: The name of the cookbook the template file is in, defaults to the calling cookbook
 
 #### Examples
 
