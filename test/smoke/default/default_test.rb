@@ -16,7 +16,7 @@ control 'bash-1.0' do
   describe file('/etc/skel/.bashrc') do
     it { should exist }
     it { should be_file }
-    its('content') { should match(%r{# To manually add resources to the bashrc, create a file in the \~\/\.bashrc\.d folder and add your changes there\.}) }
+    its('content') { should match(%r{# To manually add resources to the bashrc, create a file in the ~/\.bashrc\.d folder and add your changes there\.}) }
     its('mode') { should cmp '0770' }
     its('owner') { should eq 'root' }
     its('group') { should eq 'root' }
@@ -33,7 +33,7 @@ control 'bash-1.0' do
   describe file('/etc/skel/.bashrc.d/000-init') do
     it { should exist }
     it { should be_file }
-    its('content') { should match(%r{# \~\/\.bashrc: executed by bash\(1\) for non-login shells\.}) }
+    its('content') { should match(%r{# ~/\.bashrc: executed by bash\(1\) for non-login shells\.}) }
     its('mode') { should cmp '0770' }
     its('owner') { should eq 'root' }
     its('group') { should eq 'root' }
@@ -75,7 +75,7 @@ control 'bash-1.0' do
   describe file('/home/user1/.bashrc') do
     it { should exist }
     it { should be_file }
-    its('content') { should match(%r{# To manually add resources to the bashrc, create a file in the \~\/\.bashrc\.d folder and add your changes there\.}) }
+    its('content') { should match(%r{# To manually add resources to the bashrc, create a file in the ~/\.bashrc\.d folder and add your changes there\.}) }
     its('mode') { should cmp '0770' }
     its('owner') { should eq 'user1' }
     its('group') { should eq 'user1' }
@@ -92,7 +92,7 @@ control 'bash-1.0' do
   describe file('/home/user1/.bashrc.d/000-init') do
     it { should exist }
     it { should be_file }
-    its('content') { should match(%r{# \~\/\.bashrc: executed by bash\(1\) for non-login shells\.}) }
+    its('content') { should match(%r{# ~/\.bashrc: executed by bash\(1\) for non-login shells\.}) }
     its('mode') { should cmp '0770' }
     its('owner') { should eq 'user1' }
     its('group') { should eq 'user1' }
