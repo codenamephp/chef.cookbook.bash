@@ -56,9 +56,9 @@ The file resources are primarily for convenience since the handle skel and users
 ## Resources
 
 ### Manage
-This resources initializes the bash config management by createing a .bashrc.d dropfolder, moving the current .bashrc to .bashrc.d/000-init and replaces the .bashrc with a file that sources all files within the .bashrc.d folder
+This resources initializes the bash config management by creating a .bashrc.d dropfolder, moving the current .bashrc to .bashrc.d/000-init and replaces the .bashrc with a file that sources all files within the .bashrc.d folder
 
-By default, this will also be done in the /etc/skel folder so new users that will be created will be created with the same settings. This can be useful when the users are "not known" or created dynamicly via a databag.
+By default, this will also be done in the /etc/skel folder so new users will be created with the same settings. This can be useful when the users are "not known" or created dynamicly via a databag.
 
 #### Actions
 
