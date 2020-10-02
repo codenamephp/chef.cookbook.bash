@@ -5,6 +5,7 @@ property :users, Array, default: [], description: 'The users that will receive t
 property :filename, String, required: true, description: 'The file name in the dropfolder, should begin with a number for sorting, e.g. 100-myFile'
 property :source, String, required: true, description: 'The source template to use'
 property :cookbook, String, description: 'The cookbook the template file is in, defaults to the current cookbook'
+property :variables, Hash, default: {}, description: 'Hash of variables to pass to the template resource'
 
 action :add do
   create_file('/etc/skel', 'root', new_resource.filename, new_resource.source) if new_resource.skel
@@ -20,6 +21,7 @@ action_class do
       path "#{folder}/.bashrc.d/#{filename}"
       source source
       cookbook new_resource.cookbook
+      variables(new_resource.variables)
     end
   end
 

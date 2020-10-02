@@ -27,8 +27,7 @@ install:
   - openssl aes-256-cbc -K $encrypted_264707aa6565_key -iv $encrypted_264707aa6565_iv -in codenamephp.pem.enc -out codenamephp.pem -d
 
 script: 
-  - chef exec foodcritic .
-  - chef exec rubocop
+  - chef exec cookstyle .
   - chef exec kitchen test
 
 before_deploy:

@@ -124,6 +124,16 @@ control 'bash-1.0' do
     its('owner') { should eq 'user1' }
     its('group') { should eq 'user1' }
   end
+
+  describe file('/home/user1/.bashrc.d/300-template-with-variables') do
+    it { should exist }
+    it { should be_file }
+    its('content') { should match('Just some super value') }
+    its('mode') { should cmp '0770' }
+    its('owner') { should eq 'user1' }
+    its('group') { should eq 'user1' }
+  end
+
   describe file('/home/user1/.bashrc.d/400-content') do
     it { should_not exist }
   end

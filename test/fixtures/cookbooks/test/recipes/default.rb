@@ -10,46 +10,54 @@ user 'create user 3' do
 end
 
 codenamephp_bash_manage 'manage bash' do
-  users %w[user1 user2 user3]
+  users %w(user1 user2 user3)
 end
 
 codenamephp_bash_file 'add a file' do
-  users %w[user1 user2 user3]
+  users %w(user1 user2 user3)
   filename '100-content'
   content 'just some test'
 end
 
 codenamephp_bash_cookbook_file 'add a cookbook file' do
-  users %w[user1 user2 user3]
+  users %w(user1 user2 user3)
   filename '200-file'
   cookbook_file 'some_file'
   cookbook 'test'
 end
 
 codenamephp_bash_template 'add a template file' do
-  users %w[user1 user2 user3]
+  users %w(user1 user2 user3)
   filename '300-template'
   source 'some_template'
   cookbook 'test'
 end
 
+codenamephp_bash_template 'add a template file with variables' do
+  users %w(user1 user2 user3)
+  filename '300-template-with-variables'
+  source 'template_with_variable.erb'
+  cookbook 'test'
+  variables({ 'value': 'super value' })
+end
+
 codenamephp_bash_file 'add a file' do
-  users %w[user3]
+  users %w(user3)
   filename '400-content'
   content 'just some test'
 end
 codenamephp_bash_file 'add a file' do
-  users %w[user3]
+  users %w(user3)
   filename '500-content'
   content 'just some test'
 end
 
 codenamephp_bash_remove_file 'remove a file' do
-  users %w[user3]
+  users %w(user3)
   filename '400-content'
 end
 codenamephp_bash_remove_file 'remove a file' do
-  users %w[user3]
+  users %w(user3)
   filename '500-content'
   skel false
 end
