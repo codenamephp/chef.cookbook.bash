@@ -8,6 +8,14 @@
 
 - Template variables [\#25](https://github.com/codenamephp/chef.cookbook.bash/pull/25) ([bastianschwarz](https://github.com/bastianschwarz))
 
+## [2.2.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.2.0) (2020-10-02)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.1.1...2.2.0)
+
+**Implemented enhancements:**
+
+- Template variables [\#25](https://github.com/codenamephp/chef.cookbook.bash/pull/25) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [2.1.1](https://github.com/codenamephp/chef.cookbook.bash/tree/2.1.1) (2020-06-24)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.1.0...2.1.1)
