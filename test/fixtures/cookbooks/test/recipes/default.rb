@@ -33,6 +33,15 @@ codenamephp_bash_template 'add a template file' do
   cookbook 'test'
 end
 
+
+codenamephp_bash_template 'add a template file with variables' do
+  users %w[user1 user2 user3]
+  filename '300-template-with-variables'
+  source 'template_with_variable.erb'
+  cookbook 'test'
+  variables({'value': 'super value'})
+end
+
 codenamephp_bash_file 'add a file' do
   users %w[user3]
   filename '400-content'
