@@ -64,7 +64,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: "main"
+          ref: "master"
 
       - name: create changelog
         uses: charmixer/auto-changelog-action@v1
@@ -78,13 +78,13 @@ jobs:
           message: "[CHANGELOG] Updated changelog"
           add: "CHANGELOG.md"
           signoff: true
-          branch: main
+          branch: master
 
       - name: Create pull request
         uses: repo-sync/pull-request@v2
         with:
           source_branch: "release"
-          destination_branch: "main"
+          destination_branch: "master"
           pr_title: "[Deployment] Update default branch"
           pr_label: "skip-changelog"
           github_token: ${{ secrets.GITHUB_TOKEN }}
