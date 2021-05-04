@@ -8,6 +8,10 @@
 
 - Unified mode [\#27](https://github.com/codenamephp/chef.cookbook.bash/pull/27) ([bastianschwarz](https://github.com/bastianschwarz))
 
+**Merged pull requests:**
+
+- Bump tubone24/update\_release from v1.1.0 to v1.2.0 [\#28](https://github.com/codenamephp/chef.cookbook.bash/pull/28) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [2.2.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.2.0) (2020-10-02)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.1.1...2.2.0)
