@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+unified_mode true
 property :skel, [true, false], default: true, description: 'Manages the /etc/skel/.bashrc.d and .bashrc so new users will get the dropfolder'
 property :users, Array, default: [], description: 'The users that will receive the .bashrc.d dropfolder'
 
