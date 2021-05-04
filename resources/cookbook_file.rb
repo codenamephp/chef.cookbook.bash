@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+unified_mode true
 property :skel, [true, false], default: true, description: 'If the file should be added to /etc/skel/.bashrc.d so new users will get it'
 property :users, Array, default: [], description: 'The users that will receive the file in their .bashrc.d dropfolder'
 property :filename, String, required: true, description: 'The file name in the dropfolder, should begin with a number for sorting, e.g. 100-myFile'
