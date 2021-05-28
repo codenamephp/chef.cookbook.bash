@@ -7,6 +7,7 @@
 **Merged pull requests:**
 
 - Bump EndBug/add-and-commit from 7 to 7.2.1 [\#35](https://github.com/codenamephp/chef.cookbook.bash/pull/35) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump patrickjahns/version-drafter-action from 1 to 1.1.2 [\#34](https://github.com/codenamephp/chef.cookbook.bash/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [2.3.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.3.0) (2021-05-04)
 
