@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/codenamephp/chef.cookbook.bash/tree/HEAD)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.3.0...HEAD)
+
+**Merged pull requests:**
+
+- Bump EndBug/add-and-commit from 7 to 7.2.1 [\#35](https://github.com/codenamephp/chef.cookbook.bash/pull/35) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [2.3.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.3.0) (2021-05-04)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.2.0...2.3.0)
