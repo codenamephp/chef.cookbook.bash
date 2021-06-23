@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Bump bobheadxi/deployments from 0.5.2 to 0.6.0 [\#36](https://github.com/codenamephp/chef.cookbook.bash/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump EndBug/add-and-commit from 7 to 7.2.1 [\#35](https://github.com/codenamephp/chef.cookbook.bash/pull/35) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump patrickjahns/version-drafter-action from 1 to 1.1.2 [\#34](https://github.com/codenamephp/chef.cookbook.bash/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump repo-sync/pull-request from 2 to 2.6 [\#33](https://github.com/codenamephp/chef.cookbook.bash/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
