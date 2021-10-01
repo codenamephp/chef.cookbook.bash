@@ -81,7 +81,7 @@ jobs:
           branch: master
 
       - name: Create pull request
-        uses: repo-sync/pull-request@v2.6
+        uses: repo-sync/pull-request@v2
         with:
           source_branch: "release"
           destination_branch: "master"
