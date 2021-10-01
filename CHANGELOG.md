@@ -1,19 +1,5 @@
 # Changelog
 
-## [Unreleased](https://github.com/codenamephp/chef.cookbook.bash/tree/HEAD)
-
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.3.0...HEAD)
-
-**Merged pull requests:**
-
-- Bump patrickjahns/version-drafter-action from 1.1.2 to 1.2.0 [\#38](https://github.com/codenamephp/chef.cookbook.bash/pull/38) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump EndBug/add-and-commit from 7.2.1 to 7.3.0 [\#37](https://github.com/codenamephp/chef.cookbook.bash/pull/37) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump bobheadxi/deployments from 0.5.2 to 0.6.0 [\#36](https://github.com/codenamephp/chef.cookbook.bash/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump EndBug/add-and-commit from 7 to 7.2.1 [\#35](https://github.com/codenamephp/chef.cookbook.bash/pull/35) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump patrickjahns/version-drafter-action from 1 to 1.1.2 [\#34](https://github.com/codenamephp/chef.cookbook.bash/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump repo-sync/pull-request from 2 to 2.6 [\#33](https://github.com/codenamephp/chef.cookbook.bash/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump actions/checkout from 2 to 2.3.4 [\#32](https://github.com/codenamephp/chef.cookbook.bash/pull/32) ([dependabot[bot]](https://github.com/apps/dependabot))
-
 ## [2.3.0](https://github.com/codenamephp/chef.cookbook.bash/tree/2.3.0) (2021-05-04)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.2.0...2.3.0)
