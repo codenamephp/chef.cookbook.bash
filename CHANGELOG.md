@@ -94,6 +94,9 @@
 **Merged pull requests:**
 
 - Release info [\#17](https://github.com/codenamephp/chef.cookbook.bash/pull/17) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 1.0.2\] [\#8](https://github.com/codenamephp/chef.cookbook.bash/pull/8) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 1.0.1\] [\#7](https://github.com/codenamephp/chef.cookbook.bash/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 1.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.bash/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v1.0.2](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.2) (2018-09-02)
 
@@ -103,17 +106,9 @@
 
 - Changelog: Version not respected after release [\#6](https://github.com/codenamephp/chef.cookbook.bash/issues/6)
 
-**Merged pull requests:**
-
-- \[RELEASE 1.0.2\] [\#8](https://github.com/codenamephp/chef.cookbook.bash/pull/8) ([bastianschwarz](https://github.com/bastianschwarz))
-
 ## [v1.0.1](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.1) (2018-09-02)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/v1.0.0...v1.0.1)
-
-**Merged pull requests:**
-
-- \[RELEASE 1.0.1\] [\#7](https://github.com/codenamephp/chef.cookbook.bash/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v1.0.0](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.0) (2018-09-02)
 
@@ -127,10 +122,6 @@
 **Closed issues:**
 
 - Lets see if auto changelog works [\#1](https://github.com/codenamephp/chef.cookbook.bash/issues/1)
-
-**Merged pull requests:**
-
-- \[RELEASE 1.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.bash/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
 
 
 
