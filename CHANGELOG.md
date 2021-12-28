@@ -1,11 +1,12 @@
 # Changelog
 
-## [2.3.1](https://github.com/codenamephp/chef.cookbook.bash/tree/2.3.1) (2021-11-12)
+## [2.3.1](https://github.com/codenamephp/chef.cookbook.bash/tree/2.3.1) (2021-12-28)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.bash/compare/2.3.0...2.3.1)
 
 **Merged pull requests:**
 
+- Bump bobheadxi/deployments from 0.6.1 to 0.6.2 [\#44](https://github.com/codenamephp/chef.cookbook.bash/pull/44) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump tubone24/update\_release from 1.2.0 to 1.3.1 [\#43](https://github.com/codenamephp/chef.cookbook.bash/pull/43) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump bobheadxi/deployments from 0.6.0 to 0.6.1 [\#42](https://github.com/codenamephp/chef.cookbook.bash/pull/42) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump bobheadxi/deployments from 0.5.2 to 0.6.0 [\#40](https://github.com/codenamephp/chef.cookbook.bash/pull/40) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -66,6 +67,7 @@
 
 - Resolves \#19 [\#21](https://github.com/codenamephp/chef.cookbook.bash/pull/21) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE\] 2.1.0 [\#18](https://github.com/codenamephp/chef.cookbook.bash/pull/18) ([github-actions[bot]](https://github.com/apps/github-actions))
+- Release info [\#17](https://github.com/codenamephp/chef.cookbook.bash/pull/17) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [2.0.5](https://github.com/codenamephp/chef.cookbook.bash/tree/2.0.5) (2020-06-20)
 
@@ -100,10 +102,6 @@
 - Move to a resource [\#14](https://github.com/codenamephp/chef.cookbook.bash/issues/14)
 - Changelog: Only commit when changed [\#9](https://github.com/codenamephp/chef.cookbook.bash/issues/9)
 - \[RELEASE\] 0.0.1 [\#15](https://github.com/codenamephp/chef.cookbook.bash/pull/15) ([github-actions[bot]](https://github.com/apps/github-actions))
-
-**Merged pull requests:**
-
-- Release info [\#17](https://github.com/codenamephp/chef.cookbook.bash/pull/17) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v1.0.2](https://github.com/codenamephp/chef.cookbook.bash/tree/v1.0.2) (2018-09-02)
 
